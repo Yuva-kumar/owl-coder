@@ -1,0 +1,29 @@
+# prime factors
+def prime(n):
+    if n<2:
+        return False
+    a=int(n**0.5)
+    for i in range(2,a+1):
+        if n%i==0:
+            return False
+    return True
+def primelist(n):
+    l=[]
+    for i in range(2,n+1):
+        if prime(i):
+            l.append(i)
+    return l
+def fac(n):
+    k=primelist(n)
+    l=[]
+    for i in k:
+        while n%i==0:
+            l.append(i)
+            n=n//i
+    return l
+a,b=map(int,input().split())
+c=0
+for i in range(a,b+1):
+    k=fac(i)
+    c+=len(k)
+print(c)
