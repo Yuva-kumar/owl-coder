@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int a;
+    cin>>a;
+    string b;
+    b=to_string(a);
+    int cnt=0;
+    for (int i=0;i<b.length();i++){
+        if (b[i]-'0'!=0 && a%(b[i] -'0')==0){
+            cnt+=1;
+        }
+    }
+    cout<<cnt;
+    
+}
