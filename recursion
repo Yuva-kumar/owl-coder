@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int dp[100001];
+int fun(int i, int n,int v[]){
+    
+    if (i==(n-1)) return 0;
+    if (dp[i]!=-1) return dp[i];
+    
+    int left= abs(v[i]-v[i+1])+ fun(i+1,n,v);
+    int right=INT_MAX;
+    if (i+2<=n-1) right=abs(v[i]-v[i+2]) + fun(i+2,n,v);
+    return dp[i]=min(left,right);
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int v[n];
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+    }
+    memset(dp,-1,sizeof(dp));
+    cout<<fun(0,n,v);
+    
+    
+}
