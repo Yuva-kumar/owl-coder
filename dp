@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int dp[100001];
+int fun(int i,int n,int k,int arr[]){
+    if (i==n-1) return 0;
+    if (dp[i]!=-1) return dp[i];
+    int ans=INT_MAX;
+    for (int j=1;j<=k;j++){
+        if (i+j<=n-1){
+            ans=min(ans,abs(arr[i]-arr[i+j])+fun(i+j,n,k,arr));
+        }
+    }
+    return dp[i]=ans;
+    
+    
+}
+int main(){
+    
+    int n,k;
+    cin>>n>>k;
+    int arr[n];
+    for (int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    memset(dp,-1,sizeof(dp));
+    cout<<fun(0,n,k,arr);
+    
+}
