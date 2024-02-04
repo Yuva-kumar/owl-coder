@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+class Solution
+{
+    public:
+        // Should return decimal equivalent modulo 1000000007 of binary linked list 
+        long long unsigned int decimalValue(Node *head)
+        {
+           // Your Code Here
+           int m= 1e9+7;
+           long long s=0;
+           vector<int>v;
+           Node *temp=head;
+           while (temp!=NULL){
+                s=((s*2)+ (temp->data))%m;
+               temp=temp->next;
+               
+           }
+           return s%m;
+        }
+};
+
+
