@@ -1,0 +1,16 @@
+class Solution:
+    def subLinkedList(self, l1, l2): 
+        temp1=l1
+        temp2=l2
+        s1,s2=0,0
+        while (temp1!=None):
+            s1=(s1*10)+temp1.data
+            temp1=temp1.next
+        while (temp2!=None):
+            s2=(s2*10)+temp2.data
+            temp2=temp2.next
+        k=Node(abs(s1-s2))
+        return k
+        
+            
+            
