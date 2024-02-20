@@ -1,0 +1,13 @@
+//Function to return a list containing the preorder traversal of the tree.
+void fun(vector<int>&v,Node* root){
+    if ((root)==NULL) return;
+    v.push_back(root->data);
+    fun(v,root->left);
+    fun(v,root->right);
+}
+vector <int> preorder(Node* root)
+{
+  // Your code here
+  vector<int>v;
+  fun(v,root);
+  return v;
